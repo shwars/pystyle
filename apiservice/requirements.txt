@@ -1,0 +1,3 @@
+azure-storage-blob==1.5.0
+azure-storage-queue
+azure-cosmosdb-table
