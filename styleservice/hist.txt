@@ -1,0 +1,661 @@
+    1  ls
+    2  mkdir WORK
+    3  cd WORK/
+    4  git clone http://github.com/shwars/head_detection
+    5  cd head_detection/
+    6  ls
+    7  pip install -r requirements.txt 
+    8  ls
+    9  cd keras-retinanet/
+   10  ls
+   11  cd ..
+   12  git submodule help
+   13  git submodule --help
+   14  git submodule -update --init
+   15  git submodule update --init
+   16  dvc status
+   17  dvc checkout
+   18  dvc fetch
+   19  ls
+   20  git status
+   21  dvc remote add --local dataorigin azure://storage4data/hollywoodheads
+   22  dvc remote modify --local dataorigin connection_string "DefaultEndpointsProtocol=https;AccountName=storage4data;AccountKey=SCYdpytuvKZu4GVDLqu8eNyVQ7H2D/f+YTTWP5aNYB8zO7hD9/KU5ivWf+BxkYduU0qiypnYgF879LsBISVSNA==;EndpointSuffix=core.windows.net"
+   23  dvc fetch
+   24  dvc remote default dataorigin
+   25  dvc remote
+   26  dvc remote list
+   27  dvc remote add -dataorigin azure://storage4data/hollywoodheads
+   28  git status
+   29  dvc remote
+   30  dvc remote remove dataorigin
+   31  dvc remote add dataorigin azure://storage4data/hollywoodheads
+   32  dvc remote modify dataorigin connection_string "DefaultEndpointsProtocol=https;AccountName=storage4data;AccountKey=SCYdpytuvKZu4GVDLqu8eNyVQ7H2D/f+YTTWP5aNYB8zO7hD9/KU5ivWf+BxkYduU0qiypnYgF879LsBISVSNA==;EndpointSuffix=core.windows.net"
+   33  dvc remote list
+   34  dvc remote 
+   35  dvc remote default dataorigin
+   36  dvc fetch
+   37  git status
+   38  git commit -a -m "Configure dvc remote storage"
+   39  cd ..
+   40  git clone http://github.com/shwars/dotfiles
+   41  cd dotfiles/
+   42  ls
+   43  bash install.sh 
+   44  cd ..
+   45  cd head_detection/
+   46  git config --global --edit
+   47  git commit --amend --reset-author
+   48  git push
+   49  dvc fetch
+   50  pip install dvc[azure]
+   51  nano requirements.txt 
+   52  git commit -a -m "Add dvc[azure] to requirements"
+   53  git push
+   54  dvc fetch
+   55  cd WORK/
+   56  cd head_detection/
+   57  dvc fetch
+   58  ls
+   59  ls data
+   60  dvc checkout
+   61  ls data/HollywoodHeads
+   62  ls
+   63  cd keras-retinanet/
+   64  ls
+   65  pip install .
+   66  cd ..
+   67  mkdir train
+   68  cd train/
+   69  retinanet-train voc --classes head ../data/HollywoodHeads
+   70  pip install tensorflow-gpu
+   71  retinanet-train voc --classes head ../data/HollywoodHeads
+   72  retinanet-train voc --classes "head" ../data/HollywoodHeads
+   73  retinanet-train voc --voclasses "head" ../data/HollywoodHeads
+   74  retinanet-train voc --voclasses head ../data/HollywoodHeads
+   75  ls ../data/HollywoodHeads
+   76  ls ../data/HollywoodHeads/Splits/
+   77  pushd ../data/HollywoodHeads/
+   78  mkdir ImageSets
+   79  mkdir ImageSets/Main
+   80  cp Splits/* ImageSets/Main
+   81  popd
+   82  retinanet-train voc --voclasses head ../data/HollywoodHeads
+   83  retinanet-train voc --voclasses head ../data/HollywoodHeads --extension .jpeg
+   84  retinanet-train voc --voclasses head ../data/HollywoodHeads --image-extension .jpeg
+   85  retinanet-train voc --voclasses head ../data/HollywoodHeads --image-extension .jpeg --freeze
+   86  retinanet-train voc --voclasses head ../data/HollywoodHeads --image-extension .jpeg --imagenet-weights
+   87  retinanet-train voc --voclasses head ../data/HollywoodHeads --image-extension .jpeg --no-weights
+   88  retinanet-train --imagenet-weights voc --voclasses head ../data/HollywoodHeads --image-extension .jpeg
+   89  retinanet-train --backbone vgg --voclasses head ../data/HollywoodHeads --image-extension .jpeg
+   90  retinanet-train --backbone vgg voc --voclasses head ../data/HollywoodHeads --image-extension .jpeg
+   91  retinanet-train --backbone vgg16 voc --voclasses head ../data/HollywoodHeads --image-extension .jpeg
+   92  retinanet-train --backbone vgg19 voc --voclasses head ../data/HollywoodHeads --image-extension .jpeg
+   93  retinanet-train --no-weights voc --voclasses head ../data/HollywoodHeads --image-extension .jpeg
+   94  exit
+   95  clear
+   96  ls
+   97  cd WORK/
+   98  ls
+   99  cd head_detection/
+  100  ls
+  101  cd keras-retinanet/
+  102  ls
+  103  cd ..
+  104  ls
+  105  cd train/
+  106  ls
+  107  cd dvc
+  108  cd ..
+  109  dvc status
+  110  export TERM=vt100
+  111  nano
+  112  exit
+  113  clear
+  114  exit
+  115  top
+  116  nvidia-smi
+  117  exit
+  118  ls
+  119  clear
+  120  cd WORK/
+  121  ls
+  122  cd head_detection/
+  123  ls
+  124  cd keras-retinanet/
+  125  history | moe
+  126  history | more
+  127  python keras_retinanet/bin/train.py 
+  128  python setup build_ext --inplace
+  129  python setup.py build_ext --inplace
+  130  python keras_retinanet/bin/train.py 
+  131  python keras_retinanet/bin/train.py --voclases head ../data/HollywoodHeads
+  132  python keras_retinanet/bin/train.py voc --voclases head ../data/HollywoodHeads
+  133  python keras_retinanet/bin/train.py voc --voclasses head ../data/HollywoodHeads
+  134  python keras_retinanet/bin/train.py voc --voclasses head --image-ext jpeg ../data/HollywoodHeads
+  135  python keras_retinanet/bin/train.py voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads
+  136  pip freeze | grep tensorflow
+  137  pip install tensorflow
+  138  pip freeze | grep tensorflow
+  139  pip uninstall tensorlow-gpu
+  140  pip freeze | grep tensorflow
+  141  pip uninstall tensorflow-gpu
+  142  pip freeze | grep tensorflow
+  143  python keras_retinanet/bin/train.py voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads
+  144  pip uninstall tensorflow
+  145  pip install tensorflow
+  146  python keras_retinanet/bin/train.py voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads
+  147  pip install tensorflow==2.0
+  148  python keras_retinanet/bin/train.py voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads
+  149  pip freeze | grep keras
+  150  pip uninstall keras
+  151  pip install keras==2.3
+  152  python keras_retinanet/bin/train.py voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads
+  153  pip install tensorflow=2.2
+  154  pip install tensorflow==2.2
+  155  python keras_retinanet/bin/train.py voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads
+  156  screen
+  157  screen -r
+  158  screen
+  159  screen -r
+  160  python keras_retinanet/bin/train.py voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads
+  161  python keras_retinanet/bin/train.py voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads --epocs 5
+  162  python keras_retinanet/bin/train.py voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads --epochs 5
+  163  python keras_retinanet/bin/train.py --epochs 5 --gpu 0 voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads
+  164  cat ../data/HollywoodHeads/Annotations/mov_007_121338.xml
+  165  cat ../data/HollywoodHeads/Annotations/mov_007_121335.xml
+  166  cat ../data/HollywoodHeads/Annotations/mov_007_121353.xml
+  167  cat ../data/HollywoodHeads/Annotations/mov_007_121338.xml
+  168  python keras_retinanet/bin/train.py --epochs 5 --gpu 0 voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads
+  169  git status
+  170  cd ..
+  171  git status
+  172  cd keras-retinanet/
+  173  ls
+  174  git status
+  175  cp keras_retinanet/preprocessing/generic_voc.py ~/WORK/
+  176  ls
+  177  cd ..
+  178  ls
+  179  nano requirements.txt 
+  180  ls
+  181  git status
+  182  ls
+  183  cd WORK/
+  184  ls
+  185  cd head_detection/
+  186  ls
+  187  cd train/
+  188  ls
+  189  cd ..
+  190  cd keras-retinanet/
+  191  ls
+  192  cd snapshots/
+  193  ls
+  194  cd ..
+  195  python keras_retinanet/bin/train.py --help
+  196  cp ./snapshots/resnet50_voc_02.h5 ~
+  197  python keras_retinanet/bin/train.py --snapshot resnet50_voc_02.h5 voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads --epochs 5
+  198  python keras_retinanet/bin/train.py --snapshot resnet50_voc_02.h5 --epochs 5 voc --voclasses head --image-ext .jpeg ../data/HollywoodHeads
+  199  ls -la
+  200  ls -la snapshots/
+  201  ls keras_retinanet/bin/
+  202  python keras_retinanet/bin/evaluate.py 
+  203  python keras_retinanet/bin/convert_model.py 
+  204  python keras_retinanet/bin/convert_model.py snapshots/resnet50_voc_02.h5 snap.h5
+  205  ls -la
+  206  mv snap.h5 snapshots
+  207  python keras_retinanet/bin/evaluate.py 
+  208  ls
+  209  cd ..
+  210  ls
+  211  mkdir infer
+  212  cd infer/
+  213  cd ..
+  214  ls
+  215  cd infer/
+  216  ls
+  217  rm infer.ipynb 
+  218  ls
+  219  cd ..
+  220  rm infer/
+  221  rm -r infer/
+  222  ls
+  223  cd keras-retinanet/
+  224  ls
+  225  cd ..
+  226  mkdir infer
+  227  cd infer/
+  228  touch infer.py
+  229  ls ../data/HollywoodHeads/JPEGImages/mov_0
+  230  python infer.py 
+  231  ls
+  232  cd ..
+  233  lks
+  234  ls
+  235  nano requirements.txt 
+  236  pip install -r requirements.txt 
+  237  cd infer/
+  238  ls
+  239  cp infer.py infer_server.py
+  240  ls
+  241  screen 
+  242  curl localhost:5000
+  243  curl http://localhost:5000/predict
+  244  exit
+  245  screen -r
+  246  ls
+  247  screen -r
+  248  ls
+  249  screen -r
+  250  cd WORK/head_detection/
+  251  ls
+  252  cd infer/
+  253  ls
+  254  python infer_server.py 
+  255  nano infer_server.py 
+  256  python infer_server.py 
+  257  nano infer_server.py 
+  258  %
+  259  nano infer_server.py 
+  260  python infer_server.py 
+  261  pip freeze | grep keras
+  262  pip freeze | grep ker
+  263  pip freeze | grep keras
+  264  pip install keras
+  265  pip install keras==2.3.1
+  266  pip freeze | grep keras
+  267  python infer_server.py 
+  268  cd ..
+  269  cd data/
+  270  ls
+  271  cd HollywoodHeads/
+  272  ls
+  273  cd Splits/
+  274  ls
+  275  cat test.txt 
+  276  cat train.txt 
+  277  ls
+  278  pip install mPyPl
+  279  cd ..
+  280  ls
+  281  cd ..
+  282  cd train/
+  283  ls
+  284  python voc2csv.py 
+  285  ls
+  286  cat annotations.csv 
+  287  ls ../data/HollywoodHeads/Splits/
+  288  wc ../data/HollywoodHeads/Splits/
+  289  wc ../data/HollywoodHeads/Splits/*
+  290  python voc2csv.py 
+  291  wc ../data/HollywoodHeads/Splits/*
+  292  python voc2csv.py 
+  293  ls
+  294  wc -l annotations.csv 
+  295  rm annotations.csv 
+  296  python voc2csv.py 
+  297  ls
+  298  ls -la
+  299  wc -l test_annotations.csv 
+  300  wc -l ../data/HollywoodHeads/Splits/val.txt 
+  301  more test_annotations.csv 
+  302  python voc2csv.py 
+  303  ls
+  304  python voc2csv.py 
+  305  ls
+  306  python voc2csv.py 
+  307  ls -la
+  308  cat classes.csv 
+  309  wc -l *.csv
+  310  mkdir ../data/HollywoodHeads/csv
+  311  cp *.csv ../data/HollywoodHeads/csv/
+  312  cd ../data/HollywoodHeads/
+  313  dvc add csv
+  314  dvc status
+  315  ls
+  316  scp 
+  317  scp vmuser@detectvm.cloudapp.azure.com:~/fuse .
+  318  scp vmuser@detectvm.northeurope.cloudapp.azure.com:~/fuse .
+  319  scp -R vmuser@detectvm.northeurope.cloudapp.azure.com:~/fuse .
+  320  scp -r vmuser@detectvm.northeurope.cloudapp.azure.com:~/fuse .
+  321  wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+  322  sudo dpkg -i packages-microsoft-prod.deb
+  323  dpkg
+  324  sudo dpkg
+  325  sudo dpkg -i packages-microsoft-prod.deb
+  326  ls
+  327  ls -la
+  328  lbconfig -a
+  329  sudo dpkg -i packages-microsoft-prod.deb
+  330  ls /var/lock
+  331  sudo dpkg -i packages-microsoft-prod.deb
+  332  rm packages-microsoft-prod.deb
+  333  sudo apt-get update
+  334  sudo apt-get install blobfuse
+  335  ls
+  336  ls -la fuse/
+  337  fuse/fusemount 
+  338  ls /mnt/data/
+  339  ls
+  340  cd WORK/
+  341  sl
+  342  ls
+  343  git clone https://github.com/fizyr/keras-retinanet
+  344  cd keras-retinanet/
+  345  pip install numpy
+  346  pip install .
+  347  cat > /mnt/data/HollywoodHeads/classes.csv
+  348  retinanet_train
+  349  pip install . --user
+  350  retinanet_train
+  351  python keras_retinanet/bin/train.py 
+  352  python setup.py build_ext --inplace
+  353  pip install --upgrade numpy
+  354  python setup.py build_ext --inplace
+  355  retinanet_train
+  356  python keras_retinanet/bin/train.py 
+  357  ls
+  358  cd WORK/
+  359  ks
+  360  ls
+  361  cd keras-retinanet/
+  362  ls
+  363  python keras_retinanet/bin/train.py 
+  364  python keras_retinanet/bin/train.py csv
+  365  python keras_retinanet/bin/train.py csv /mnt/data/HollywoodHeads/annotations.csv /mnt/data/HollywoodHeads/classes.csv 
+  366  conda update tensorflow
+  367  conda update tf
+  368  conda update tensorflow-gpu
+  369  conda
+  370  conda update
+  371  conda update tensorflow
+  372  conda update tensorflow-gpu
+  373  conda
+  374  conda list
+  375  conda update tensorflow
+  376  conda upgrade tensorflow
+  377  conda
+  378  pip upgrade tensorflow
+  379  pip install --update tensorflow
+  380  pip install --upgrade tensorflow
+  381  python keras_retinanet/bin/train.py csv /mnt/data/HollywoodHeads/annotations.csv /mnt/data/HollywoodHeads/classes.csv 
+  382  head /mnt/data/HollywoodHeads/annotations.csv 
+  383  head -41 /mnt/data/HollywoodHeads/annotations.csv 
+  384  head -45 /mnt/data/HollywoodHeads/annotations.csv 
+  385  python keras_retinanet/bin/train.py csv /mnt/data/HollywoodHeads/annotations.csv /mnt/data/HollywoodHeads/classes.csv 
+  386  nano /mnt/data/HollywoodHeads/annotations.csv 
+  387  python keras_retinanet/bin/train.py csv /mnt/data/HollywoodHeads/annotations.csv /mnt/data/HollywoodHeads/classes.csv 
+  388  head -4089 /mnt/data/HollywoodHeads/annotations.csv | tail -1
+  389  unount /mnt/data
+  390  umount /mnt/data
+  391  sudo umount /mnt/data
+  392  nano ../../fuse/fusemount 
+  393  ../../fuse/fusemount 
+  394  nano ../../fuse/fusemount 
+  395  ../../fuse/fusemount 
+  396  head -4089 /mnt/data/HollywoodHeads/annotations.csv | tail -1
+  397  python keras_retinanet/bin/train.py csv /mnt/data/HollywoodHeads/annotations.csv /mnt/data/HollywoodHeads/classes.csv 
+  398  screen
+  399  top
+  400  ls
+  401  nvidia-smi
+  402  exit
+  403  nvidia-smi 
+  404  top
+  405  exit
+  406  screen -r
+  407  exit
+  408  top
+  409  exit
+  410  screen -r
+  411  cat fuse/fusemount 
+  412  ls
+  413  cd WORK/keras-retinanet/
+  414  ls
+  415  ls snapshots/
+  416  cd WORK/keras-retinanet/
+  417  sl
+  418  ls
+  419  python keras_retinanet/bin/convert_model.py snapshots/resnet50_csv_07.h5 snapshots/infmodel.h5
+  420  ls -la snapshots/
+  421  wget https://www.iosh.co.uk/~/media/Images/Networks/Group/group-of-seated-people-talking.jpg?
+  422  ls
+  423  mv group-of-seated-people-talking.jpg\? group.jpg
+  424  ls
+  425  python keras_retinanet/bin/evaluate.py 
+  426  nano infer.py
+  427  clear
+  428  ls
+  429  more keras_retinanet/bin/evaluate.py 
+  430  nano infer.py 
+  431  ls
+  432  nano infer.py 
+  433  python infer.py 
+  434  nano infer.py 
+  435  python infer.py 
+  436  nano infer.py 
+  437  python infer.py 
+  438  ls
+  439  ls snapshots/
+  440  python infer.py 
+  441  nano infer.py 
+  442  python infer.py 
+  443  nano examples/ResNet50RetinaNet.py 
+  444  python examples/ResNet50RetinaNet.py 
+  445  cd examples/
+  446  python ResNet50RetinaNet.py 
+  447  ls
+  448  nano examples/ResNet50RetinaNet.py 
+  449  nano ResNet50RetinaNet.py 
+  450  python ResNet50RetinaNet.py 
+  451  python keras_retinanet/bin/train.py csv /mnt/data/HollywoodHeads/annotations.csv /mnt/data/HollywoodHeads/classes.csv 
+  452  python keras_retinanet/bin/train.py
+  453  python keras_retinanet/bin/train.py --gpu 0 csv /mnt/data/HollywoodHeads/annotations.csv /mnt/data/HollywoodHeads/classes.csv 
+  454  ls
+  455  cat requirements.txt 
+  456  pip install --upgrade keras
+  457  python keras_retinanet/bin/train.py --gpu 0 csv /mnt/data/HollywoodHeads/annotations.csv /mnt/data/HollywoodHeads/classes.csv 
+  458  head -1000 /mnt/data/HollywoodHeads/annotations.csv > /mnt/data/HollywoodHeads/annotations1k.csv 
+  459  python keras_retinanet/bin/train.py --gpu 0 csv /mnt/data/HollywoodHeads/annotations1k.csv /mnt/data/HollywoodHeads/classes.csv 
+  460  python keras_retinanet/bin/train.py --gpu 0 csv /mnt/data/HollywoodHeads/annotations.csv /mnt/data/HollywoodHeads/classes.csv 
+  461  python keras_retinanet/bin/train.py --gpu 0 --epochs 7 csv /mnt/data/HollywoodHeads/annotations.csv /mnt/data/HollywoodHeads/classes.csv 
+  462  ls
+  463  cd snapshots/
+  464  ls
+  465  cd
+  466  ls
+  467  mkdir temp
+  468  cd temp/
+  469  git clone http://github.com/CloudAdvocacy/ObjectDetection
+  470  nano mount_share
+  471  source mount_share 
+  472  ls /mnt/test/
+  473  ls
+  474  cd ObjectDetection/scripts/
+  475  python disktest.py read /mnt/test
+  476  python disktest.py read /mnt/data/test/
+  477  python disktest.py read /mnt/test/
+  478  mkdir /mnt/z
+  479  sudo mkdir /mnt/t2
+  480  sudo chown vmuser /mnt/t2
+  481  python disktest.py write /mnt/t2
+  482  python disktest.py read /mnt/t2
+  483  cd /mnt
+  484  cd t2
+  485  du .
+  486  azcopy
+  487  azcopy --source . --destination https://storage4data.core.windows.net/tst --dest-key mkAVvyUD1W7ZhTwx4mBo1WOM0SzwFen+Q+qEiXLOOOQa7hcoFys28dPsOe/cGBJzXA7eSKyiQmPEnWj9dnqOKg==
+  488  azcopy --source . --destination https://storage4data.core.windows.net/tst --dest-key mkAVvyUD1W7ZhTwx4mBo1WOM0SzwFen+Q+qEiXLOOOQa7hcoFys28dPsOe/cGBJzXA7eSKyiQmPEnWj9dnqOKg== --dest-type blob
+  489  ps auxw
+  490  ps auxw | grep azcopy
+  491  %
+  492  azcopy --source . --destination https://storage4data.core.windows.net/tst --dest-key mkAVvyUD1W7ZhTwx4mBo1WOM0SzwFen+Q+qEiXLOOOQa7hcoFys28dPsOe/cGBJzXA7eSKyiQmPEnWj9dnqOKg== --dest-type blob --recursive
+  493  az storage -n storage4data 
+  494  az storage --help -n storage4data 
+  495  az storage file -n storage4data
+  496  az storage file --help -n storage4data
+  497  az storage file list -n storage4data
+  498  az storage file list -n storage4data -s test
+  499  az storage file list --account-name storage4data -s test
+  500  az storage file list --account-name storage4data -s test --auth-mode login
+  501  az storage file list --account-name storage4data -s test --accoint-key mkAVvyUD1W7ZhTwx4mBo1WOM0SzwFen+Q+qEiXLOOOQa7hcoFys28dPsOe/cGBJzXA7eSKyiQmPEnWj9dnqOKg==
+  502  az storage file list --account-name storage4data -s test --account-key mkAVvyUD1W7ZhTwx4mBo1WOM0SzwFen+Q+qEiXLOOOQa7hcoFys28dPsOe/cGBJzXA7eSKyiQmPEnWj9dnqOKg==
+  503  ls
+  504  rm *
+  505  ls
+  506  cp -r /mnt/data/HollywoodHeads/JPEGImages .
+  507  du
+  508  rm -rf .
+  509  rm -rf JPEGImages/
+  510  ls
+  511  ls .ssh/
+  512  cd .ssh/
+  513  ls
+  514  cat authorized_keys 
+  515  cat id_dsa.pub 
+  516  cat id_dsa.pub >> authorized_keys 
+  517  exit
+  518  cd
+  519  ls
+  520  cd .ssh/
+  521  ls
+  522  ssh-keygen -t dsa
+  523  cat authorized_keys 
+  524  scp id_dsa.pub vmuser@detectvmgpu:~/.ssh
+  525  cat id_dsa >> authorized_keys 
+  526  chmod 600 authorized_keys 
+  527  cd 
+  528  ssh -l vmuser detectvmgpu.northeurope.cloudapp.azure.com
+  529  ls
+  530  cd WORK/
+  531  ls
+  532  git clone http://github.com/shwars/pystyle
+  533  cd pystyle/
+  534  mkdir scripts
+  535  cd scripts/
+  536  az group create -n pytransfer -l northeurope
+  537  az login
+  538  az group create -n pytransfer -l northeurope
+  539  az storage account create -n pytransfer -g pytransfer
+  540  az storage account delete -n pytransfer -g pytransfer
+  541  az storage account create -n pytransfer -g pytransfer --sku Standard_LRS
+  542  az storage account keys list -n pystyle -g pystyle
+  543  az storage account keys list -n pytransfer -g pytransfrr
+  544  az storage account keys list -n pytransfer -g pytransfer
+  545  az storage account keys list --help -n pytransfer -g pytransfer
+  546  az storage account keys list --help -n pytransfer -g pytransfer -o tsv
+  547  az storage account keys list -n pytransfer -g pytransfer -o tsv
+  548  az storage account keys list -n pytransfer -g pytransfer -o tsv | grep key1
+  549  az storage account keys list -n pytransfer -g pytransfer -o tsv | grep key1 | cut -f3
+  550  bash setup.sh 
+  551  ls
+  552  cat config.py 
+  553  bash setup.sh 
+  554  cat config.py 
+  555  bash setup.sh 
+  556  cat config.py 
+  557  bash setup.sh 
+  558  cat config.py 
+  559  bash setup.sh 
+  560  ls
+  561  cd ..
+  562  nano .gitignore 
+  563  cd scripts/
+  564  bash setup.sh 
+  565  cd ../styleservice/
+  566  ls
+  567  python styleservice.py 
+  568  conda activate 
+  569  conda envs --list
+  570  conda env --list
+  571  conda env 
+  572  conda list envs
+  573  conda activate azureml_py36_pytorch
+  574  ls
+  575  python styleservice.py 
+  576  source /anaconda/bin/activate
+  577  conda activate azureml_py36_pytorch
+  578  /anaconda/envs/azureml_py36_pytorch/bin/python
+  579  ls
+  580  cd WORK/pystyle/
+  581  ls
+  582  cd styleservice/
+  583  python styleservice.py 
+  584  conda activate azureml_py36_pytorch
+  585  python styleservice.py 
+  586  pip install azure-storage-blog
+  587  pip install azure-storage-blob
+  588  python styleservice.py 
+  589  pip install azure-storage-blob==1.5.0
+  590  python styleservice.py 
+  591  cd WORK/pystyle/
+  592  cd apiservice/
+  593  python apiservice.py 
+  594  pip freeze | grep azure-stor
+  595  pip freeze | grep cosm
+  596  cd ../styleservice/
+  597  ls
+  598  docker
+  599  ls
+  600  cd WORK/pystyle/
+  601  ls
+  602  cd styleservice/
+  603  ls
+  604  docker images
+  605  sudo docker images
+  606  ls
+  607  docker
+  608  docker images
+  609  docker ps
+  610  sudo usermod -aG docker ${USER}
+  611  docker ps
+  612  exit
+  613  docker ps
+  614  ls
+  615  cd WORK/
+  616  ls
+  617  cd pystyle/
+  618  ls
+  619  cd styleservice/
+  620  ls
+  621  docker build -t styleservice .
+  622  docker run styleservice
+  623  ls
+  624  docker build -t styleservice .
+  625  git mv ../images .
+  626  ls
+  627  docker build -t styleservice .
+  628  docker run styleservice
+  629  docker ps
+  630  docker run -it styleservice
+  631  ls
+  632  conda activate azureml-py36-pytorch
+  633  conda activate azureml_py36_pytorch
+  634  pip freeze | grep torch
+  635  pip freeze
+  636  python 
+  637  ls
+  638  python --version
+  639  python styleservice.py 
+  640  cuda
+  641  nvidia-smi
+  642  python styleservice.py 
+  643  pip install -r requirements.txt 
+  644  python styleservice.py 
+  645  nvidia-smi
+  646  docker build -t styleservice .
+  647  docker run -it styleservice
+  648  docker run -it nvidia/cuda:11.0-base
+  649  ls
+  650  cd WORK/
+  651  ls
+  652  cd pystyle/
+  653  ls
+  654  cd apiservice/
+  655  ls
+  656  cd ../styleservice/
+  657  ls
+  658  docker images
+  659  docker system prune -a
+  660  docker images
+  661  history > hist.txt
